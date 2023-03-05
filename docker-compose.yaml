@@ -1,15 +1,24 @@
 services:
-  auth-backend:
-    build:
-      dockerfile: Dockerfile
-      context: ./auth-backend/
-      # Only will build development stage from our dockerfile
-      target: development
-    volumes:
-      - ./auth-backend/:/usr/src/app
-    env_file:
-    - ./auth-backend/.env
-    # Run a command against the development stage of the image
-    command: pnpm start:dev
+  # auth-backend:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./auth-backend/
+  #     # Only will build development stage from our dockerfile
+  #     target: development
+  #   volumes:
+  #     - ./auth-backend/:/usr/src/app
+  #   env_file:
+  #   - ./auth-backend/.env
+  #   # Run a command against the development stage of the image
+  #   command: pnpm start:dev
+  #   ports:
+  #     - 6969:6969
+  redis: # Name of container
+    image: redis
     ports:
-      - 6969:6969
+      - 6379:6379
+    volumes:
+      - redis:/data
+volumes:
+  redis:
+    driver: local
