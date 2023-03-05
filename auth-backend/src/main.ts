@@ -11,7 +11,8 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(3000);
-  console.log('Server Ready on Port 3000');
+  const PORT = process.env.PORT;
+  await app.listen(PORT);
+  console.log(`Server Ready on Port ${PORT}`);
 }
 bootstrap();
