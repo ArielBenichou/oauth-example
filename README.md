@@ -2,7 +2,7 @@
 
 # Lay of the Land
 
-![Architecture](./assetso/overview-arch.png)
+![Architecture](./assets/overview-arch.png)
 
 
 # The Flow
